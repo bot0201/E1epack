@@ -11,13 +11,13 @@ $scoreboard players set #lib_get_side_entities_side tmp $(side)
 execute \
   if score #lib_get_side_entities_side tmp matches -2147483647..-1 \
   run tellraw @s {\
-    "text":"执行失败!side宏应为0(左)/1(右)!",\
+    "text":"执行失败!side宏应为0(左)/1(右)/2(上)/3(下)!",\
     "color":"red"\
   }
 execute \
   if score #lib_get_side_entities_side tmp matches 4..2147483647 \
   run tellraw @s {\
-    "text":"执行失败!side宏应为0(左)/1(右)!",\
+    "text":"执行失败!side宏应为0(左)/1(右)/2(上)/3(下)!",\
     "color":"red"\
   }
 # 校验成功与执行

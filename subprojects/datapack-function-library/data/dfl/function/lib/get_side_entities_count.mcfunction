@@ -30,21 +30,21 @@ execute \
   if entity @e[distance=0..1024]
 #右
 execute \
-  if score #lib_get_side_entities_side dfl_scoreboard matches 0 \
+  if score #lib_get_side_entities_side dfl_scoreboard matches 1 \
   rotated as @s \
   positioned ^1024 ^ ^ \
   store result score @s entities_side \
   if entity @e[distance=0..1024]
 #上
 execute \
-  if score #lib_get_side_entities_side dfl_scoreboard matches 0 \
+  if score #lib_get_side_entities_side dfl_scoreboard matches 2 \
   rotated as @s \
   positioned ^ ^1024 ^ \
   store result score @s entities_side \
   if entity @e[distance=0..1024]
 #下
 execute \
-  if score #lib_get_side_entities_side dfl_scoreboard matches 0 \
+  if score #lib_get_side_entities_side dfl_scoreboard matches 3 \
   rotated as @s \
   positioned ^ ^-1024 ^ \
   store result score @s entities_side \

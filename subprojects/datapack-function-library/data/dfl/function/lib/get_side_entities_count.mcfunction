@@ -1,21 +1,21 @@
-## 此文件用于监测任意实体左右侧实体计数
+## 此文件用于监测任意实体上、下、左、右侧实体计数
 # 原理：半径足够大的圆可以近似看做一条直线
 # 传参：as 实体、side宏（0=左,1=右,2=上,3=下）
 
 scoreboard objective add dfl_scoreboard dummy
 scoreboard objective add entities_side dummy
-$scoreboard players set #lib_get_side_entities_side tmp $(side)
+$scoreboard players set #lib_get_side_entities_side dfl_scoreboard $(side)
 
 ## 校验
 # 显示校验失败
 execute \
-  if score #lib_get_side_entities_side tmp matches -2147483647..-1 \
+  if score #lib_get_side_entities_side dfl_scoreboard matches -2147483647..-1 \
   run tellraw @s {\
     "text":"执行失败!side宏应为0(左)/1(右)/2(上)/3(下)!",\
     "color":"red"\
   }
 execute \
-  if score #lib_get_side_entities_side tmp matches 4..2147483647 \
+  if score #lib_get_side_entities_side dfl_scoreboard matches 4..2147483647 \
   run tellraw @s {\
     "text":"执行失败!side宏应为0(左)/1(右)/2(上)/3(下)!",\
     "color":"red"\
@@ -23,28 +23,28 @@ execute \
 # 校验成功与执行
 #左
 execute \
-  if score #lib_get_side_entities_side tmp matches 0 \
+  if score #lib_get_side_entities_side dfl_scoreboard matches 0 \
   rotated as @s \
   positioned ^1024 ^ ^ \
   store result score @s entities_side \
   if entity @e[distance=0..1024]
 #右
 execute \
-  if score #lib_get_side_entities_side tmp matches 0 \
+  if score #lib_get_side_entities_side dfl_scoreboard matches 0 \
   rotated as @s \
   positioned ^1024 ^ ^ \
   store result score @s entities_side \
   if entity @e[distance=0..1024]
 #上
 execute \
-  if score #lib_get_side_entities_side tmp matches 0 \
+  if score #lib_get_side_entities_side dfl_scoreboard matches 0 \
   rotated as @s \
   positioned ^ ^1024 ^ \
   store result score @s entities_side \
   if entity @e[distance=0..1024]
 #下
 execute \
-  if score #lib_get_side_entities_side tmp matches 0 \
+  if score #lib_get_side_entities_side dfl_scoreboard matches 0 \
   rotated as @s \
   positioned ^ ^-1024 ^ \
   store result score @s entities_side \

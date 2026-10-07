@@ -2,8 +2,8 @@
 # 原理：半径足够大的圆可以近似看做一条直线
 # 传参：as 实体、side宏（0=左,1=右,2=上,3=下）
 
-scoreboard objective add dfl_scoreboard dummy
-scoreboard objective add entities_side dummy
+scoreboard objectives add dfl_scoreboard dummy
+scoreboard objectives add entities_side dummy
 $scoreboard players set #lib_get_side_entities_side dfl_scoreboard $(side)
 
 ## 校验
